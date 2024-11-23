@@ -1,7 +1,7 @@
 {
     "users": [
-        { "id": 1, "name": "John Doe", "role": "Admin", "status": "Active" },
-        { "id": 2, "name": "Jane Smith", "role": "User", "status": "Inactive" }
+        { "id": 1, "name": "John Doe", "role": "Admin", "status": "ACTIVE" },
+        { "id": 2, "name": "Jane Smith", "role": "User", "status": "INACTIVE" }
     ],
     "roles": [
         {

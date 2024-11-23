@@ -5,10 +5,17 @@ const userStore = create((set) => ({
     loading: false,
 
     fetchUsers: async () => {
-        set({ loading: true });
-        const response = await fetch('http://localhost:3001/users');
-        const data = response.json();
-        set({ users: data, loading: false });
+        try {
+            const response = await fetch('http://localhost:3001/users');
+            const data = await response.json();
+            const users = Array.isArray(data) ? data : [];
+            set({ users });
+            return users;
+        } catch (error) {
+            console.error('Failed to fetch users:', error);
+            set({ users: [] });
+            return [];
+        }
     },
 
     addUser: (user) => set((state) => ({ users: [...state.users, user] })),
@@ -24,7 +31,7 @@ const userStore = create((set) => ({
         set((state) => ({
             users: state.users.filter((user) => user.id !== userId),
         })),
-        
+
     toggleUserStatus: (id) =>
         set((state) => ({
             users: state.users.map((user) =>
