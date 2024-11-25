@@ -8,7 +8,7 @@ const UserTable = () => {
     const [selectedUser, setSelectedUser] = useState(null);
 
     useEffect(() => {
-        fetchUsers(); 
+        fetchUsers();
     }, [fetchUsers]);
 
     const handleEdit = (user) => {

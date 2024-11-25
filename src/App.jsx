@@ -1,6 +1,7 @@
 import Sidebar from './components/Sidebar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserTable from './components/users';
+import RoleTable from './components/Roles';
 
 function App() {
     return (
@@ -9,8 +10,8 @@ function App() {
                 <Sidebar />
                 <div className="flex-1 p-6">
                     <Routes>
-                        <Route path="/users" element={<UserTable />} />
-                        {/* <Route path="/roles" element={< />} /> */}
+                        <Route path="/" element={<UserTable />} />
+                        <Route path="/roles" element={<RoleTable />} />
                     </Routes>
                 </div>
             </div>

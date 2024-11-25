@@ -1,14 +1,41 @@
 {
-    "users": [
-        { "id": 1, "name": "John Doe", "role": "Admin", "status": "ACTIVE" },
-        { "id": 2, "name": "Jane Smith", "role": "User", "status": "INACTIVE" }
-    ],
-    "roles": [
-        {
-            "id": 1,
-            "name": "Admin",
-            "permissions": ["Read", "Write", "Delete"]
-        },
-        { "id": 2, "name": "User", "permissions": ["Read"] }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "role": "Admin",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "role": "User",
+      "status": "INACTIVE"
+    },
+    {
+      "id": "9659",
+      "name": "EA",
+      "email": "aaa@example.com",
+      "role": "User",
+      "status": "ACTIVE"
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "permissions": [
+        "Read",
+        "Write",
+        "Delete"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "User",
+      "permissions": [
+        "Read"
+      ]
+    }
+  ]
 }

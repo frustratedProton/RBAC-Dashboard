@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
-import useUserStore from '../../store/userStore';
+import userStore from '../../store/userStore';
 
 const UserModal = ({ user, closeModal }) => {
-    const { addUser, editUser } = useUserStore();
+    const { addUser, editUser } = userStore();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -19,10 +19,20 @@ const UserModal = ({ user, closeModal }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const newUser = { ...formData };
+
         if (user) {
             editUser(formData);
         } else {
-            addUser(formData);
+            // addUser(formData);
+            fetch('http://localhost:3001/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newUser),
+            })
+                .then((resp) => resp.json())
+                .then((savedUser) => addUser(savedUser));
         }
         closeModal();
     };

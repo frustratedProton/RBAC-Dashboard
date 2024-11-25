@@ -7,7 +7,7 @@ const Sidebar = () => {
             <ul>
                 <li>
                     <Link
-                        to="/users"
+                        to="/"
                         className="block p-2 hover:bg-gray-700 rounded"
                     >
                         Users
