@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import userStore from '../store/userStore';
 import UserModal from './Modal/UserModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const UserTable = () => {
     const { users, fetchUsers, deleteUser, toggleUserStatus } = userStore();
@@ -61,13 +63,13 @@ const UserTable = () => {
                                     onClick={() => handleEdit(user)}
                                     className="text-blue-500"
                                 >
-                                    Edit
+                                    <FontAwesomeIcon icon={faPenToSquare} />
                                 </button>
                                 <button
                                     onClick={() => deleteUser(user.id)}
                                     className="ml-2 text-red-500"
                                 >
-                                    Delete
+                                    <FontAwesomeIcon icon={faTrash} />
                                 </button>
                             </td>
                         </tr>

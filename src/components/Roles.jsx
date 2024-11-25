@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import roleStore from '../store/roleStore';
 import RoleModal from './Modal/RoleModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const RoleTable = () => {
     const { roles, fetchRoles, deleteRole } = roleStore();
@@ -46,13 +48,13 @@ const RoleTable = () => {
                                     onClick={() => handleEdit(role)}
                                     className="text-blue-500"
                                 >
-                                    Edit
+                                    <FontAwesomeIcon icon={faPenToSquare} />
                                 </button>
                                 <button
                                     onClick={() => deleteRole(role.id)}
                                     className="ml-2 text-red-500"
                                 >
-                                    Delete
+                                    <FontAwesomeIcon icon={faTrash} />
                                 </button>
                             </td>
                         </tr>
