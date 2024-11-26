@@ -82,5 +82,52 @@
             "name": "User",
             "permissions": ["Read"]
         }
+    ],
+    "auditLogs": [
+        {
+            "id": "1",
+            "timestamp": "2024-11-26T12:00:00Z",
+            "user": "Admin",
+            "action": "Assigned Role",
+            "target": "User: John Doe",
+            "outcome": "Success",
+            "details": "Assigned 'Admin' role to user John Doe."
+        },
+        {
+            "id": "2",
+            "timestamp": "2024-11-26T12:10:00Z",
+            "user": "Admin",
+            "action": "Permission Change",
+            "target": "Role: User",
+            "outcome": "Success",
+            "details": "Changed 'User' role permissions to include 'Write'."
+        },
+        {
+            "id": "3",
+            "timestamp": "2024-11-26T12:20:00Z",
+            "user": "John Doe",
+            "action": "Login Attempt",
+            "target": "User: John Doe",
+            "outcome": "Success",
+            "details": "User John Doe logged in successfully."
+        },
+        {
+            "id": "4",
+            "timestamp": "2024-11-26T12:30:00Z",
+            "user": "Admin",
+            "action": "Role Removal",
+            "target": "User: Jane Smith",
+            "outcome": "Failure",
+            "details": "Failed to remove 'Admin' role from user Jane Smith due to insufficient permissions."
+        },
+        {
+            "id": "5",
+            "timestamp": "2024-11-26T12:40:00Z",
+            "user": "Sophia Williams",
+            "action": "Status Change",
+            "target": "User: Michael Brown",
+            "outcome": "Success",
+            "details": "Changed status of user Michael Brown to 'ACTIVE'."
+        }
     ]
 }

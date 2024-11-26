@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserTable from './components/users';
 import RoleTable from './components/Roles';
 import Navbar from './components/Navbar';
+import Dashboard from './components/Dashboard';
 
 function App() {
     return (
@@ -12,7 +13,8 @@ function App() {
                 <Sidebar />
                 <div className="flex-1 pt-20 pl-64 h-full overflow-auto">
                     <Routes>
-                        <Route path="/" element={<UserTable />} />
+                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/users" element={<UserTable />} />
                         <Route path="/roles" element={<RoleTable />} />
                     </Routes>
                 </div>
