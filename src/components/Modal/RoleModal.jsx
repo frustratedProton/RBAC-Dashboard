@@ -10,18 +10,33 @@ const RoleModal = ({ role, closeModal }) => {
     });
 
     useEffect(() => {
+        // console.log('Role data:', role); 
         if (role) {
-            setFormData({ ...role });
+            setFormData({
+                name: role.name || '',
+                permissions:
+                    role.permissions.map((perm) => perm.toLowerCase()) || [], // normalizing to lowercase for consistent naming in db   
+            });
+        } else {
+            setFormData({
+                name: '',
+                permissions: [],
+            });
         }
     }, [role]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const newRole = { ...formData };
+        const newRole = {
+            ...formData,
+            permissions: formData.permissions.map(
+                (perm) => perm.charAt(0).toUpperCase() + perm.slice(1)
+            ),
+        };
 
         if (role) {
-            editRole(formData);
+            editRole(newRole);
         } else {
             fetch('http://localhost:3001/roles', {
                 method: 'POST',
@@ -29,7 +44,7 @@ const RoleModal = ({ role, closeModal }) => {
                 body: JSON.stringify(newRole),
             })
                 .then((resp) => resp.json())
-                .then((savedUser) => addRole(savedUser));
+                .then((savedRole) => addRole(savedRole));
         }
         closeModal();
     };

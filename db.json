@@ -1,41 +1,86 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "name": "John Doe",
-      "role": "Admin",
-      "status": "ACTIVE"
-    },
-    {
-      "id": "2",
-      "name": "Jane Smith",
-      "role": "User",
-      "status": "INACTIVE"
-    },
-    {
-      "id": "9659",
-      "name": "EA",
-      "email": "aaa@example.com",
-      "role": "User",
-      "status": "ACTIVE"
-    }
-  ],
-  "roles": [
-    {
-      "id": "1",
-      "name": "Admin",
-      "permissions": [
-        "Read",
-        "Write",
-        "Delete"
-      ]
-    },
-    {
-      "id": "2",
-      "name": "User",
-      "permissions": [
-        "Read"
-      ]
-    }
-  ]
+    "users": [
+        {
+            "id": "1",
+            "name": "John Doe",
+            "email": "johndoe@example.com",
+            "role": "Admin",
+            "status": "ACTIVE"
+        },
+        {
+            "id": "2",
+            "name": "Jane Smith",
+            "email": "janesmith@example.com",
+            "role": "User",
+            "status": "INACTIVE"
+        },
+        {
+            "id": "3",
+            "name": "Mark Johnson",
+            "email": "markjohnson@example.com",
+            "role": "User",
+            "status": "ACTIVE"
+        },
+        {
+            "id": "4",
+            "name": "Emily Davis",
+            "email": "emilydavis@example.com",
+            "role": "Admin",
+            "status": "ACTIVE"
+        },
+        {
+            "id": "5",
+            "name": "Michael Brown",
+            "email": "michaelbrown@example.com",
+            "role": "User",
+            "status": "INACTIVE"
+        },
+        {
+            "id": "6",
+            "name": "Sophia Williams",
+            "email": "sophiawilliams@example.com",
+            "role": "Admin",
+            "status": "ACTIVE"
+        },
+        {
+            "id": "7",
+            "name": "David Lee",
+            "email": "davidlee@example.com",
+            "role": "User",
+            "status": "ACTIVE"
+        },
+        {
+            "id": "8",
+            "name": "Olivia Taylor",
+            "email": "oliviataylor@example.com",
+            "role": "User",
+            "status": "ACTIVE"
+        },
+        {
+            "id": "9",
+            "name": "James Martinez",
+            "email": "jamesmartinez@example.com",
+            "role": "Admin",
+            "status": "INACTIVE"
+        },
+        {
+            "id": "10",
+            "name": "Isabella Garcia",
+            "email": "isabellagarcia@example.com",
+            "role": "User",
+            "status": "ACTIVE"
+        }
+    ],
+    "roles": [
+        {
+            "id": "1",
+            "name": "Admin",
+            "permissions": ["Read", "Write", "Delete"]
+        },
+        {
+            "id": "2",
+            "name": "User",
+            "permissions": ["Read"]
+        }
+    ]
 }
