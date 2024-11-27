@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react';
 import roleStore from '../store/roleStore';
 import RoleModal from './Modal/RoleModal';
+import Pagination from './Pagination';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faArrowLeft,
-    faArrowRight,
-    faPenToSquare,
-    faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const RoleTable = () => {
     const { roles, fetchRoles, deleteRole } = roleStore();
@@ -35,7 +31,9 @@ const RoleTable = () => {
 
     return (
         <div className="p-6 bg-white rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6">Role Management</h2>
+            <h2 className="text-lg font-semibold mb-6 font-montserrat">
+                Role Management
+            </h2>
             <button
                 onClick={() => {
                     setSelectedRole(null);
@@ -48,37 +46,39 @@ const RoleTable = () => {
             <table className="min-w-full table-auto border-collapse bg-gray-100 rounded-lg overflow-hidden shadow-sm">
                 <thead className="bg-gray-800 text-white">
                     <tr>
-                        <th className="border-b p-4 text-left">Role</th>
-                        <th className="border-b p-4 text-left">Permissions</th>
-                        <th className="border-b p-4 text-left">Actions</th>
+                        <th className="border-b p-4 text-left text-sm">Role</th>
+                        <th className="border-b p-4 text-left text-sm">
+                            Permissions
+                        </th>
+                        <th className="border-b p-4 text-left text-sm">
+                            Actions
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     {currentRoles.map((role) => (
                         <tr key={role.id} className="hover:bg-gray-200">
-                            {/* Role Name Cell */}
                             <td className="border-b p-4">
                                 <div className="flex items-center">
                                     <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-white">
-                                        <span className="text-xl">
+                                        <span className="text-base">
                                             {role.name[0]}
-                                        </span>
+                                        </span>{' '}
+                                        {/* Reduced text size for icon */}
                                     </div>
                                     <div className="ml-4">
-                                        <div className="text-lg font-semibold">
+                                        <div className="text-sm font-semibold">
                                             {role.name}
                                         </div>
                                     </div>
                                 </div>
                             </td>
-
-                            {/* Permissions Cell */}
                             <td className="border-b p-4">
                                 <div className="flex flex-wrap gap-2">
                                     {['Read', 'Write', 'Delete'].map((perm) => (
                                         <label
                                             key={`${role.id}-${perm}`}
-                                            className="flex items-center space-x-2"
+                                            className="flex items-center space-x-2 text-sm"
                                         >
                                             <input
                                                 type="checkbox"
@@ -88,15 +88,13 @@ const RoleTable = () => {
                                                 )}
                                                 readOnly
                                             />
-                                            <span className="text-gray-800">
+                                            <span className="text-sm text-gray-800">
                                                 {perm}
                                             </span>
                                         </label>
                                     ))}
                                 </div>
                             </td>
-
-                            {/* Actions Cell */}
                             <td className="border-b p-4">
                                 <div className="flex space-x-2">
                                     <button
@@ -105,7 +103,7 @@ const RoleTable = () => {
                                     >
                                         <FontAwesomeIcon
                                             icon={faPenToSquare}
-                                            className="text-xl"
+                                            className="text-lg"
                                         />
                                     </button>
                                     <button
@@ -114,7 +112,7 @@ const RoleTable = () => {
                                     >
                                         <FontAwesomeIcon
                                             icon={faTrash}
-                                            className="text-xl"
+                                            className="text-lg"
                                         />
                                     </button>
                                 </div>
@@ -124,50 +122,13 @@ const RoleTable = () => {
                 </tbody>
             </table>
 
-            {/* Pagination */}
-            <div className="flex justify-center mt-6">
-                <button
-                    onClick={() => paginate(currentPage - 1)}
-                    className={`flex items-center justify-center px-4 py-2 mx-1 rounded-lg ${
-                        currentPage === 1
-                            ? 'bg-gray-400 cursor-not-allowed'
-                            : 'bg-blue-500 hover:bg-blue-600'
-                    }`}
-                    disabled={currentPage === 1}
-                >
-                    <FontAwesomeIcon icon={faArrowLeft} />
-                    <span className="sr-only">Previous</span>
-                </button>
+            {/* Pagination Controls */}
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                paginate={paginate}
+            />
 
-                {[...Array(totalPages)].map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => paginate(index + 1)}
-                        className={`px-4 py-2 mx-1 rounded-lg ${
-                            currentPage === index + 1
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-gray-200 hover:bg-gray-300'
-                        }`}
-                    >
-                        {index + 1}
-                    </button>
-                ))}
-
-                <button
-                    onClick={() => paginate(currentPage + 1)}
-                    className={`flex items-center justify-center px-4 py-2 mx-1 rounded-lg ${
-                        currentPage === totalPages
-                            ? 'bg-gray-400 cursor-not-allowed'
-                            : 'bg-blue-500 hover:bg-blue-600'
-                    }`}
-                    disabled={currentPage === totalPages}
-                >
-                    <FontAwesomeIcon icon={faArrowRight} />
-                    <span className="sr-only">Next</span>
-                </button>
-            </div>
-
-            {/* Modal */}
             {showModal && (
                 <RoleModal
                     role={selectedRole}

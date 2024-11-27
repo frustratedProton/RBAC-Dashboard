@@ -9,7 +9,8 @@ const roleStore = create((set) => ({
         try {
             const response = await fetch('http://localhost:3001/roles');
             const data = await response.json();
-            set({ roles: data, loading: false });
+            const roles = Array.isArray(data) ? data : [];
+            set({ roles, loading: false });
         } catch (error) {
             console.error('Failed to fetch roles:', error);
             set({ roles: [], loading: false });
@@ -36,16 +37,20 @@ const roleStore = create((set) => ({
 
     editRole: async (updatedRole) => {
         try {
-            await fetch(`http://localhost:3001/roles/${updatedRole.id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(updatedRole),
-            });
+            const response = await fetch(
+                `http://localhost:3001/roles/${updatedRole.id}`,
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedRole),
+                }
+            );
+            const savedRole = await response.json();
             set((state) => ({
                 roles: state.roles.map((role) =>
-                    role.id === updatedRole.id ? updatedRole : role
+                    role.id === savedRole.id ? savedRole : role
                 ),
             }));
         } catch (error) {

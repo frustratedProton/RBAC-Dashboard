@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import AuditLogs from './AuditLogs';
-import {
-    UserAdminRoleDistribution,
-    ActiveInactiveUserDistribution,
-} from './RoleDistribution';
+import RoleDistribution from './RoleDistribution';
+import UserDistribution from './UserDistribution';
 
 const Dashboard = () => {
     const [users, setUsers] = useState([]);
@@ -15,15 +13,17 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <div className="p-6">
-            <h1 className="text-2xl font-bold mb-6">Admin Dashboard</h1>
+        <div className="p-6 bg-background">
+            <h1 className="text-text text-4xl font-montserrat font-bold mb-6">
+                Hello, Admin
+            </h1>
             <div className="flex space-x-6 mb-6">
                 <div className="flex-1">
-                    <UserAdminRoleDistribution users={users} />
+                    <RoleDistribution users={users} />
                 </div>
 
                 <div className="flex-1">
-                    <ActiveInactiveUserDistribution users={users} />
+                    <UserDistribution users={users} />
                 </div>
             </div>
             <AuditLogs />

@@ -7,7 +7,7 @@ import {
 
 const Navbar = () => {
     return (
-        <nav className="navbar fixed top-0 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 z-50">
+        <nav className="navbar fixed top-0 w-full bg-background border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 z-50">
             <div className="px-3 py-3 lg:px-5 lg:pl-3">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center justify-start">
@@ -19,16 +19,16 @@ const Navbar = () => {
                             <span className="sr-only">Open sidebar</span>
                             <FontAwesomeIcon
                                 icon={faBars}
-                                className="w-6 h-6"
+                                className="w-6 h-6 text-primary" // Change color to primary
                             />
                         </button>
 
                         <a href="/" className="flex ms-2">
                             <FontAwesomeIcon
                                 icon={faRocket}
-                                className="h-8 me-2 text-blue-500 dark:text-blue-400"
+                                className="h-8 me-2 text-primary dark:text-accent" // Use primary for light and accent for dark mode
                             />
-                            <span className="self-center text-xl font-semibold text-gray-900 dark:text-white">
+                            <span className="self-center text-xl font-semibold text-text dark:text-white font-montserrat">
                                 RBAC
                             </span>
                         </a>
@@ -37,7 +37,7 @@ const Navbar = () => {
                     <div className="flex items-center">
                         <button
                             type="button"
-                            className="flex items-center text-sm bg-gray-800 rounded-full p-2 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                            className="flex items-center text-sm bg-primary text-white rounded-full p-2 focus:ring-4 focus:ring-primary dark:focus:ring-accent"
                         >
                             <FontAwesomeIcon
                                 icon={faCircleUser}

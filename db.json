@@ -1,133 +1,139 @@
 {
-    "users": [
-        {
-            "id": "1",
-            "name": "John Doe",
-            "email": "johndoe@example.com",
-            "role": "Admin",
-            "status": "ACTIVE"
-        },
-        {
-            "id": "2",
-            "name": "Jane Smith",
-            "email": "janesmith@example.com",
-            "role": "User",
-            "status": "INACTIVE"
-        },
-        {
-            "id": "3",
-            "name": "Mark Johnson",
-            "email": "markjohnson@example.com",
-            "role": "User",
-            "status": "ACTIVE"
-        },
-        {
-            "id": "4",
-            "name": "Emily Davis",
-            "email": "emilydavis@example.com",
-            "role": "Admin",
-            "status": "ACTIVE"
-        },
-        {
-            "id": "5",
-            "name": "Michael Brown",
-            "email": "michaelbrown@example.com",
-            "role": "User",
-            "status": "INACTIVE"
-        },
-        {
-            "id": "6",
-            "name": "Sophia Williams",
-            "email": "sophiawilliams@example.com",
-            "role": "Admin",
-            "status": "ACTIVE"
-        },
-        {
-            "id": "7",
-            "name": "David Lee",
-            "email": "davidlee@example.com",
-            "role": "User",
-            "status": "ACTIVE"
-        },
-        {
-            "id": "8",
-            "name": "Olivia Taylor",
-            "email": "oliviataylor@example.com",
-            "role": "User",
-            "status": "ACTIVE"
-        },
-        {
-            "id": "9",
-            "name": "James Martinez",
-            "email": "jamesmartinez@example.com",
-            "role": "Admin",
-            "status": "INACTIVE"
-        },
-        {
-            "id": "10",
-            "name": "Isabella Garcia",
-            "email": "isabellagarcia@example.com",
-            "role": "User",
-            "status": "ACTIVE"
-        }
-    ],
-    "roles": [
-        {
-            "id": "1",
-            "name": "Admin",
-            "permissions": ["Read", "Write", "Delete"]
-        },
-        {
-            "id": "2",
-            "name": "User",
-            "permissions": ["Read"]
-        }
-    ],
-    "auditLogs": [
-        {
-            "id": "1",
-            "timestamp": "2024-11-26T12:00:00Z",
-            "user": "Admin",
-            "action": "Assigned Role",
-            "target": "User: John Doe",
-            "outcome": "Success",
-            "details": "Assigned 'Admin' role to user John Doe."
-        },
-        {
-            "id": "2",
-            "timestamp": "2024-11-26T12:10:00Z",
-            "user": "Admin",
-            "action": "Permission Change",
-            "target": "Role: User",
-            "outcome": "Success",
-            "details": "Changed 'User' role permissions to include 'Write'."
-        },
-        {
-            "id": "3",
-            "timestamp": "2024-11-26T12:20:00Z",
-            "user": "John Doe",
-            "action": "Login Attempt",
-            "target": "User: John Doe",
-            "outcome": "Success",
-            "details": "User John Doe logged in successfully."
-        },
-        {
-            "id": "4",
-            "timestamp": "2024-11-26T12:30:00Z",
-            "user": "Admin",
-            "action": "Role Removal",
-            "target": "User: Jane Smith",
-            "outcome": "Failure",
-            "details": "Failed to remove 'Admin' role from user Jane Smith due to insufficient permissions."
-        },
-        {
-            "id": "5",
-            "timestamp": "2024-11-26T12:40:00Z",
-            "user": "Sophia Williams",
-            "action": "Status Change",
-            "target": "User: Michael Brown",
-            "outcome": "Success",
-            "details": "Changed status of user Michael Brown to 'ACTIVE'."
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "johedoe@example.com",
+      "role": "User",
+      "status": "ACTIVE"
+    },
+    {
+        "id": "2",
+        "name": "Jane Smith",
+        "email": "janesmith@example.com",
+        "role": "User",
+        "status": "ACTIVE"
+    },
+    {
+      "id": "3",
+      "name": "Mark Johnson",
+      "email": "markjohnson@example.com",
+      "role": "User",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "4",
+      "name": "Emily Davis",
+      "email": "emilydavis@example.com",
+      "role": "Admin",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "5",
+      "name": "Michael Brown",
+      "email": "michaelbrown@example.com",
+      "role": "User",
+      "status": "INACTIVE"
+    },
+    {
+      "id": "6",
+      "name": "Sophia Williams",
+      "email": "sophiawilliams@example.com",
+      "role": "Admin",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "7",
+      "name": "David Lee",
+      "email": "davidlee@example.com",
+      "role": "User",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "8",
+      "name": "Olivia Taylor",
+      "email": "oliviataylor@example.com",
+      "role": "User",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "9",
+      "name": "James Martinez",
+      "email": "jamesmartinez@example.com",
+      "role": "Admin",
+      "status": "INACTIVE"
+    },
+    {
+      "id": "10",
+      "name": "Isabella Garcia",
+      "email": "isabellagarcia@example.com",
+      "role": "User",
+      "status": "ACTIVE"
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "permissions": [
+        "Read",
+        "Write",
+        "Delete"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "User",
+      "permissions": [
+        "Read"
+      ]
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "1",
+      "timestamp": "2024-11-26T12:00:00Z",
+      "user": "Admin",
+      "action": "Assigned Role",
+      "target": "User: John Doe",
+      "outcome": "Success",
+      "details": "Assigned 'Admin' role to user John Doe."
+    },
+    {
+      "id": "2",
+      "timestamp": "2024-11-26T12:10:00Z",
+      "user": "Admin",
+      "action": "Permission Change",
+      "target": "Role: User",
+      "outcome": "Success",
+      "details": "Changed 'User' role permissions to include 'Write'."
+    },
+    {
+      "id": "3",
+      "timestamp": "2024-11-26T12:20:00Z",
+      "user": "John Doe",
+      "action": "Login Attempt",
+      "target": "User: John Doe",
+      "outcome": "Success",
+      "details": "User John Doe logged in successfully."
+    },
+    {
+      "id": "4",
+      "timestamp": "2024-11-26T12:30:00Z",
+      "user": "Admin",
+      "action": "Role Removal",
+      "target": "User: Jane Smith",
+      "outcome": "Failure",
+      "details": "Failed to remove 'Admin' role from user Jane Smith due to insufficient permissions."
+    },
+    {
+      "id": "5",
+      "timestamp": "2024-11-26T12:40:00Z",
+      "user": "Sophia Williams",
+      "action": "Status Change",
+      "target": "User: Michael Brown",
+      "outcome": "Success",
+      "details": "Changed status of user Michael Brown to 'ACTIVE'."
+    }
+  ]
 }

@@ -8,23 +8,21 @@ import {
     Legend,
 } from 'recharts';
 
-const RoleDistribution = ({ users }) => {
-    const roleCounts = users.reduce((counts, user) => {
-        counts[user.role] = (counts[user.role] || 0) + 1;
-        return counts;
-    }, {});
+const UserDistribution = ({ users }) => {
+    const activeUsers = users.filter((user) => user.status === 'ACTIVE');
+    const inactiveUsers = users.filter((user) => user.status === 'INACTIVE');
 
-    const data = Object.keys(roleCounts).map((role) => ({
-        name: role,
-        value: roleCounts[role],
-    }));
+    const data = [
+        { name: 'Active Users', value: activeUsers.length },
+        { name: 'Inactive Users', value: inactiveUsers.length },
+    ];
 
-    const COLORS = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'];
+    const COLORS = ['#36A2EB', '#FF6384'];
 
     return (
         <div className="mb-6 p-6 bg-white rounded-lg shadow-lg">
             <h2 className="text-primary text-3xl font-montserrat font-semibold mb-6 text-center">
-                User vs Admin Role Distribution
+                Active vs Inactive Users Distribution
             </h2>
             <div style={{ width: '100%', height: 300 }}>
                 <ResponsiveContainer>
@@ -74,4 +72,4 @@ const RoleDistribution = ({ users }) => {
     );
 };
 
-export default RoleDistribution;
+export default UserDistribution;
